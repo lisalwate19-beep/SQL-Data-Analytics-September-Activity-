@@ -1,0 +1,24 @@
+-- Step 1: Create a Catalog
+CREATE CATALOG IF NOT EXISTS smart;
+
+-- Step 2: Create a Schema
+CREATE SCHEMA IF NOT EXISTS smart.intelligent;
+
+-- Step 3: Create a Table
+CREATE TABLE IF NOT EXISTS smart.intelligent.employees (
+    ID_ INT,
+    First_name STRING,
+    Last_name STRING,
+    Department STRING,
+    Salary INT,
+    Hire_date DATE,
+    City STRING
+);
+
+-- Step 4: Insert the information into the table
+INSERT INTO smart.intelligent.employees VALUES
+(1, 'Alice', 'Green', 'IT', 70000, '2020-01-10', 'Johannesburg'),
+(2, 'Brian', 'Lee', 'HR', 45000, '2019-03-22', 'Cape Town'),
+(3, 'Cathy', 'Zulu', 'Finance', 65000, '2018-07-18', 'Durban'),
+(4, 'David', 'Mokoena', 'Marketing', 50000, '2021-11-05', 'Pretoria'),
+(5, 'Eva', 'Naidoo', 'IT', 72000, '2017-09-30', 'Johannesburg');
