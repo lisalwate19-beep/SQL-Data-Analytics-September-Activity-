@@ -1,0 +1,71 @@
+--Step 1: Create a Database/Catalog
+CREATE CATALOG IF NOT EXISTS bright;
+
+--Step 2: Creat a Schema 
+CREATE SCHEMA IF NOT EXISTS bright.high;
+
+--Step 3: Remove the old table (if it exists)
+DROP TABLE IF EXISTS bright.high.top;
+
+--Step 4: Create a Table 
+CREATE TABLE IF NOT EXISTS bright.high.top (
+i_D INT,
+first_name STRING,
+last_name STRING,
+department STRING,
+salary INT,
+hire_date DATE,
+city STRING
+);
+
+--Step 5: Insert the information into the table 
+INSERT INTO bright.high.top VALUES
+(1, 'Alice', 'Green', 'IT', 70000,'2020-01-10', 'Johannesburg'),
+(2, 'Brian', 'Lee', 'HR', 45000,'2019-03-22', 'Cape Town'),
+(3, 'Cathy', 'Zulu', 'Finance', 65000,'2018-07-18', 'Durban'),
+(4, 'David', 'Mokoena', 'Marketing', 50000,'2021-11-05', 'Pretoria'),
+(5, 'Eva', 'Naidoo', 'IT', 72000,'2017-09-30', 'Johannesburg');
+
+--Step 6: Check if the table is created correctly
+SELECT*
+FROM bright.high.top;
+
+SELECT DISTINCT department
+FROM bright.high.top;
+
+
+
+SELECT first_name, last_name
+FROM bright.high.top
+ORDER BY salary DESC;
+
+SELECT first_name, last_name, salary
+FROM bright.high.top
+WHERE salary > 60000;
+
+SELECT i_d, first_name, last_name, department
+FROM bright.high.top
+WHERE department = 'IT';
+
+SELECT i_d, first_name, last_name, department, salary
+FROM bright.high.top
+WHERE department ='Finance'
+AND salary>60000
+
+SELECT i_d, first_name, last_name, department
+FROM bright.high.top
+WHERE department IN ('HR', 'Marketing');
+
+SELECT i_D, first_name, last_name, department
+FROM bright.high.top
+WHERE department <> 'IT';
+
+SELECT i_D, first_name, last_name, department
+FROM bright.high.top
+WHERE department IN ('IT', 'HR', 'Finance');
+
+SELECT*
+FROM bright.high.top
+WHERE department = 'IT'
+AND salary> 65000
+AND city = 'Johannesburg';
